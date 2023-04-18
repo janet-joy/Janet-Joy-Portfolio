@@ -1,30 +1,122 @@
-# MyPortfolio🔥![GitHub watchers](https://img.shields.io/github/watchers/dhruba-datta/MyPortfolio?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/dhruba-datta/MyPortfolio?style=social)  ![](https://visitor-badge.glitch.me/badge?page_id=dhruba-datta.dhruba-datta/MyPortfolio")
+# Owl Carousel 2
+
+Touch enabled [jQuery](https://jquery.com/) plugin that lets you create a beautiful, responsive carousel slider. **To get started, check out https://owlcarousel2.github.io/OwlCarousel2/.**
+
+**Notice:** The old Owl Carousel site (owlgraphic [dot] com) is no longer in use. Please delete all references to this in bookmarks and your own products' documentation as it's being used for malicious purposes.
+
+## Quick start
+
+### Install
+
+This package can be installed with:
+
+- [npm](https://www.npmjs.com/package/owl.carousel): `npm install --save owl.carousel` or `yarn add owl.carousel jquery`
+- [bower](http://bower.io/search/?q=owl.carousel): `bower install --save owl.carousel`
+
+Or download the [latest release](https://github.com/OwlCarousel2/OwlCarousel2/releases).
+
+### Load
+
+#### Webpack
+
+Add jQuery via the "webpack.ProvidePlugin" to your webpack configuration:
+    
+    const webpack = require('webpack');
+    
+    //...
+    plugins: [
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery',
+          'window.jQuery': 'jquery'
+        }),
+    ],
+    //...
+
+Load the required stylesheet and JS:
+
+```js
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+```
+
+#### Static HTML
+
+Put the required stylesheet at the [top](https://developer.yahoo.com/performance/rules.html#css_top) of your markup:
+
+```html
+<link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+```
+
+```html
+<link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
+```
+
+**NOTE:** If you want to use the default navigation styles, you will also need to include `owl.theme.default.css`.
 
 
-## 🚀 About Me
-I'm Dhruba, currently an undergraduate student at Delhi Technological University(DTU).Currently learning Data Structures and Algorithms, while understanding and implementing the fundamentals of computer engineering and learning web development. \
-This portfolio is SEO indexed. Simply search for **[Dhruba Datta](https://www.google.com/search?client=opera&q=dhruba+datta&sourceid=opera&ie=UTF-8&oe=UTF-8)** on Google to check!
+Put the script at the [bottom](https://developer.yahoo.com/performance/rules.html#js_bottom) of your markup right after jQuery:
 
-## 🐣 Demo
-### Home Page
-![Portfolio header](https://user-images.githubusercontent.com/74358627/150764762-9474a73c-d6d4-413e-bc2a-cd68df268532.gif)
+```html
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+```
 
-### About Me Section
-![image](https://user-images.githubusercontent.com/74358627/190100914-42dedd11-11e6-4870-8ea7-33da42787dc1.png)
+```html
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+```
 
-### Skill Section
-![image](https://user-images.githubusercontent.com/74358627/190101093-114140d0-1ae8-4e85-b9b4-d3d6bcdb2d0b.png)
+### Usage
 
-### Resume Section
-![image](https://user-images.githubusercontent.com/74358627/190101264-1cb7909c-3b38-485c-9eb7-4953b1dc0af3.png)
+Wrap your items (`div`, `a`, `img`, `span`, `li` etc.) with a container element (`div`, `ul` etc.). Only the class `owl-carousel` is mandatory to apply proper styles:
 
-### Project Section
-![image](https://user-images.githubusercontent.com/74358627/190101364-e72c4e9c-c5d7-4f5a-a06b-2155dc92fe86.png)
+```html
+<div class="owl-carousel owl-theme">
+  <div> Your Content </div>
+  <div> Your Content </div>
+  <div> Your Content </div>
+  <div> Your Content </div>
+  <div> Your Content </div>
+  <div> Your Content </div>
+  <div> Your Content </div>
+</div>
+```
+**NOTE:** The `owl-theme` class is optional, but without it, you will need to style navigation features on your own.
 
-### Contact Me Section
-![image](https://user-images.githubusercontent.com/74358627/190101514-fa7fbfb2-5bb5-4ace-bd37-fbc28150f346.png)
 
-## ✅ Acknowledgements
+Call the [plugin](https://learn.jquery.com/plugins/) function and your carousel is ready.
 
- - [My Portfolio](https://dhruba-datta.netlify.app)
- - [Template I've Used](https://bootstrapmade.com/free-html-bootstrap-template-my-resume/)
+```javascript
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+});
+```
+
+## Documentation
+
+The documentation, included in this repo in the root directory, is built with [Assemble](http://assemble.io/) and publicly available at https://owlcarousel2.github.io/OwlCarousel2/. The documentation may also be run locally.
+
+## Building
+
+This package comes with [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/). The following tasks are available:
+
+  * `default` compiles the CSS and JS into `/dist` and builds the doc.
+  * `dist` compiles the CSS and JS into `/dist` only.
+  * `watch` watches source files and builds them automatically whenever you save.
+  * `test` runs [JSHint](http://www.jshint.com/) and [QUnit](http://qunitjs.com/) tests headlessly in [PhantomJS](http://phantomjs.org/).
+
+To define which plugins are build into the distribution just edit `/_config.json` to fit your needs.
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Roadmap
+
+Please make sure to check out our [Roadmap Discussion](https://github.com/OwlCarousel2/OwlCarousel2/issues/1756).
+
+
+## License
+
+The code and the documentation are released under the [MIT License](LICENSE).
